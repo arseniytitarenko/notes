@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} base {% endblock %} </title>
+    {% block css %}<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1><a href="{{ url_for('notes') }}">Статьи</a></h1>
+            <a href="{{ url_for('add') }}" class="add-article-btn">Добавить статью</a>
+        </div>
+    </header>
+{% block content %}
+{% endblock %}
+</body>
+</html>

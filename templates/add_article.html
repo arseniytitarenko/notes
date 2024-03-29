@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %} Add {% endblock %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static', filename='css/styleForm.css')}}">{% endblock %}
+{% block content %}
+
+{% if message %}
+    {{ message }}
+    <br>
+{% endif %}
+
+{% if form %}
+    <div class="container">
+        <div class="form-container">
+            <h1>Add Article</h1>
+            <form action="{{ url_for('add') }}" method="POST" class="form-add-title">
+                {{ form.csrf_token }}
+                <div class="form-group">
+                    {{ form.title.label }} <br>
+                    {{ form.title(class="form-control") }}
+                    {% if form.title.errors %}
+                        {% for error in form.title.errors %}
+                        <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.author.label }} <br>
+                    {{ form.author(class="form-control") }}
+                    {% if form.author.errors %}
+                        {% for error in form.author.errors %}
+                        <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.date.label }} <br>
+                    {{ form.date(class="form-control") }}
+                    {% if form.date.errors %}
+                        {% for error in form.date.errors %}
+                        <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.source.label }} <br>
+                    {{ form.source(class="form-control") }}
+                    {% if form.source.errors %}
+                        {% for error in form.source.errors %}
+                        <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.content.label }} <br>
+                    {{ form.content(class="form-control") }}
+                    {% if form.content.errors %}
+                        {% for error in form.content.errors %}
+                        <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                {{ form.submit(class='btn btn-primary') }}
+            </form>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} {{ note.title }} {% endblock %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">{% endblock %}
+{% block content %}
+    <div class="article-container">
+        <div class="article-header">
+            <h1>{{ note.title }}</h1>
+            <div class="article-meta">
+                <p><span class="label">ID:</span> {{ note.id }}</p>
+                <p><span class="label">Date:</span> {{ note.date }}</p>
+                <p><span class="label">Author:</span> {{ note.author }}</p>
+                <p><span class="label">Source:</span> {{ note.source }}</p>
+            </div>
+            <div class="article-actions">
+                <button class="delete-btn"><a href={{ url_for('delete', id = note.id)}}>Удалить статью</a></button>
+                <button class="edit-btn"><a href={{ url_for('edit', id = note.id)}}>Редактировать статью</a></button>
+            </div>
+        </div>
+        <div class="article-content">
+            {% for line in lines %}
+                {{ line }}<br>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

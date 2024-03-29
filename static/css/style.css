@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.article-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.article-card {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 300px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.article-header {
+    background-color: #f2f2f2;
+    border-radius: 5px 5px 0 0;
+    padding: 20px;
+}
+
+.article-meta {
+    margin-top: 10px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.article-content {
+    background-color: #ffffff;
+    border: 1px solid #f2f2f2;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    line-height: 1.5;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-article-btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:visited {
+  color: inherit;
+}
+
+.filters-container {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.filter-input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.filter-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4CAF50;
+}
+
+.filter-button {
+  display: block;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #45a049;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sort-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.sort-label {
+  margin-right: 10px;
+}
+
+.sort-select {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

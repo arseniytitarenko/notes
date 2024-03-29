@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %} Notes {% endblock %}
+{% block css %}<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">{% endblock %}
+{% block content %}
+<div class="filters-container">
+    <form action="{{ url_for('notes') }}" method="GET">
+        <div class="filter-item">
+            <label class="filter-label" for="author">Автор:</label>
+            <input class="filter-input" id="author" name="author" value="{{ request.args.get('author', '') }}">
+        </div>
+        <div class="filter-item">
+            <label class="filter-label" for="date">Дата создания:</label>
+            <input class="filter-input" id="date" name="date" value="{{ request.args.get('date', '') }}">
+        </div>
+        <div class="filter-item">
+            <label class="filter-label" for="resource">Ресурс:</label>
+            <input class="filter-input" id="resource" name="resource" value="{{ request.args.get('resource', '') }}">
+        </div>
+        <div class="filter-item">
+            <label class="filter-label" for="text">Текст статьи:</label>
+            <input class="filter-input" id="text" name="text" value="{{ request.args.get('text', '') }}">
+        </div>
+        <button type="submit" class="filter-button">Применить фильтр</button>
+    </form>
+</div>
+<div class="sort-container">
+  <form action="{{ url_for('notes') }}" method="GET">
+    <div class="sort-item">
+      <label class="sort-label" for="sort">Сортировать по:</label>
+      <select class="sort-select" id="sort" name="sort">
+        <option value="id" {{ 'id' if request.args.get('sort') == 'id' else '' }}>ID</option>
+        <option value="title" {{ 'title' if request.args.get('sort') == 'title' else '' }}>Заголовку</option>
+        <option value="author" {{ 'author' if request.args.get('sort') == 'author' else '' }}>Автору</option>
+        <option value="date" {{ 'date' if request.args.get('sort') == 'date' else '' }}>Дате</option>
+        <option value="content" {{ 'content' if request.args.get('sort') == 'content' else '' }}>Тексту</option>
+        <option value="source" {{ 'source' if request.args.get('sort') == 'source' else '' }}>Ресурсу</option>
+      </select>
+    </div>
+    <div class="sort-item">
+      <label class="sort-label" for="direction">Направление:</label>
+      <select class="sort-select" id="direction" name="direction">
+        <option value="asc" {{ 'asc' if request.args.get('direction') == 'asc' else '' }}>По возрастанию</option>
+        <option value="desc" {{ 'desc' if request.args.get('direction') == 'desc' else '' }}>По убыванию</option>
+      </select>
+    </div>
+    <button type="submit" class="filter-button">Применить сортировку</button>
+  </form>
+</div>
+<h1>Список статей</h1>
+<div class="article-list">
+    {% for note in notes %}
+    <div class="article-card">
+        <a href={{ url_for('note', id = note.id)}}><h2>{{ note.title }}</h2></a>
+        <p><span class="label">Id:</span> {{ note.id }}</p>
+        <p><span class="label">Дата создания:</span> {{ note.date }}</p>
+        <p><span class="label">Автор:</span> {{ note.author }}</p>
+        <p><span class="label">Ресурс:</span> {{ note.source }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
